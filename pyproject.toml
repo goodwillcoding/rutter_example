@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "rutter_example"
+version = "1.0.0"
+description = ""
+authors = ["Author <au@th.or>"]
+readme = "README.rst"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pyramid = "^2.0.2"
+rutter = "^1.0"
+waitress = "^3.0.0"
+pyramid-debugtoolbar = "^4.12.1"
+black = "^24.4.2"
+pyramid-jinja2 = "^2.10.1"
+pyramid-openapi3 = {git = "https://github.com/goodwillcoding/pyramid_openapi3.git", rev = "fix/mounted-apps"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."paste.app_factory"]
+home = "rutter_example.apps.home:main"
+alpha = "rutter_example.apps.alpha:main"
+bravo = "rutter_example.apps.bravo:main"
+
+[tool.black]
+line-length = 79

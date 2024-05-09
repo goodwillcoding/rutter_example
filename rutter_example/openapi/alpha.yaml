@@ -1,0 +1,28 @@
+openapi: "3.1.0"
+
+info:
+  title: Alpha API
+  version: 1.0.0
+  description: Alpha API Example
+
+servers:
+  # match to [composite:main]'s app mount point /bravo = bravo
+  - url: /alpha
+
+paths:
+  /api/test:
+    get:
+      summary: Returns a list of users
+      description: List of users with with their usernames and so on
+      tags:
+        - User and Authentication
+      operationId: ListUsers
+      responses:
+        '200':
+          description: An array of dictionaries containing user information
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
